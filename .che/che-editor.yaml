@@ -29,4 +29,3 @@ inline:
       attributes: {}
     - name: projector-user
       volume: {}
-id: che-incubator/che-idea/latest
