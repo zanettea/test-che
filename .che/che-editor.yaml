@@ -1,31 +1,32 @@
-inline:
-  schemaVersion: 2.1.0
-  metadata:
-    name: xplc
-  components:
-    - name: xplc
-      container:
-        image: 'llweb:latest'
-        volumeMounts:
-          - name: projector-user
-            path: /home/axel/projects
-        mountSources: true
-        memoryLimit: 2048M
-        memoryRequest: 32Mi
-        cpuLimit: 1500m
-        cpuRequest: 100m
-        endpoints:
-          - name: xplc
-            attributes:
-              type: main
-              cookiesAuthEnabled: true
-              urlRewriteSupported: true
-              discoverable: false
-              path: /
-            targetPort: 3100
-            exposure: public
-            secure: false
-            protocol: https
-      attributes: {}
-    - name: projector-user
-      volume: {}
+# inline:
+#   schemaVersion: 2.1.0
+#   metadata:
+#     name: xplc
+#   components:
+#     - name: xplc
+#       container:
+#         image: 'llweb:latest'
+#         volumeMounts:
+#           - name: projector-user
+#             path: /home/axel/projects
+#         mountSources: true
+#         memoryLimit: 2048M
+#         memoryRequest: 32Mi
+#         cpuLimit: 1500m
+#         cpuRequest: 100m
+#         endpoints:
+#           - name: xplc
+#             attributes:
+#               type: main
+#               cookiesAuthEnabled: true
+#               urlRewriteSupported: true
+#               discoverable: false
+#               path: /
+#             targetPort: 3100
+#             exposure: public
+#             secure: false
+#             protocol: https
+#       attributes: {}
+#     - name: projector-user
+#       volume: {}
+id: che-incubator/che-idea/latest
