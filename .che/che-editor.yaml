@@ -8,7 +8,7 @@ inline:
         image: 'llweb:latest'
         volumeMounts:
           - name: projector-user
-            path: /home/projector-user
+            path: /home/axel/projects
         mountSources: true
         memoryLimit: 2048M
         memoryRequest: 32Mi
