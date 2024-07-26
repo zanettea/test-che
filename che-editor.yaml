@@ -22,7 +22,7 @@ inline:
               urlRewriteSupported: true
               discoverable: false
               path: /
-            targetPort: 8887
+            targetPort: 3100
             exposure: public
             secure: false
             protocol: https
