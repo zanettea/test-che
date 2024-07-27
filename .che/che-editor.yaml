@@ -9,6 +9,9 @@ components:
         - name: projector-user
           path: /home/axel/projects
       mountSources: true
+      sourceMapping: /home/axel/projects
+      command:
+        - /entrypoint.sh
       memoryLimit: 2048M
       memoryRequest: 32Mi
       cpuLimit: 1500m
