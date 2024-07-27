@@ -39,7 +39,7 @@ components:
   #     cpuRequest: 30m
   - name: che-llweb-runtime-description
     container:
-      image: 'llweb:latest'
+      image: 'che-llweb:latest'
       memoryLimit: 1024Mi
       memoryRequest: 256Mi
       cpuLimit: 500m
@@ -59,8 +59,8 @@ components:
           secure: true
           protocol: https
     attributes:
-      app.kubernetes.io/component: che-llweb-runtime
+      # app.kubernetes.io/component: che-llweb-runtime
       # app.kubernetes.io/part-of: che-code.eclipse.org
-      controller.devfile.io/container-contribution: true
+      # controller.devfile.io/container-contribution: true
   # - name: llweb
   #   volume: {}
