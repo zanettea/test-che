@@ -27,7 +27,7 @@ components:
           targetPort: 3101
           exposure: public
           secure: false
-          protocol: https
+          protocol: http
     attributes: {}
   # - name: projector-user
   #   volume: {}
