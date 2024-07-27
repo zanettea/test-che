@@ -5,9 +5,9 @@ components:
   - name: xplc
     container:
       image: 'che-llweb:latest'
-      volumeMounts:
-        - name: projector-user
-          path: /home/axel/projects
+      # volumeMounts:
+      #   - name: projector-user
+      #     path: /home/axel/projects
       mountSources: true
       sourceMapping: /home/axel/projects
       command:
@@ -29,8 +29,8 @@ components:
           secure: false
           protocol: https
     attributes: {}
-  - name: projector-user
-    volume: {}
+  # - name: projector-user
+  #   volume: {}
 
 
 # schemaVersion: 2.2.2
