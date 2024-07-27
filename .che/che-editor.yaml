@@ -1,30 +1,66 @@
-schemaVersion: 2.1.0
-metadata:
-  name: xplc
-components:
-  - name: xplc
-    container:
-      image: 'llweb:latest'
-      volumeMounts:
-        - name: projector-user
-          path: /home/axel/projects
-      mountSources: true
-      memoryLimit: 2048M
-      memoryRequest: 32Mi
-      cpuLimit: 1500m
-      cpuRequest: 100m
-      endpoints:
-        - name: xplc
-          attributes:
-            type: main
-            cookiesAuthEnabled: true
-            urlRewriteSupported: true
-            discoverable: false
-            path: /
-          targetPort: 3100
-          exposure: public
-          secure: false
-          protocol: https
-    attributes: {}
-  - name: projector-user
-    volume: {}
+  - schemaVersion: 2.2.2
+    metadata:
+      name: che-incubator/che-llweb/1.0
+      displayName: LLWeb
+      description: Axel LLWeb
+      # icon: /images/vscode.svg
+      attributes:
+        publisher: axel
+        version: 1.0
+        title: LLWeb
+        # repository: https://github.com/che-incubator/che-code
+        # firstPublicationDate: '2021-10-31'
+    commands:
+      - id: init-container-command
+        apply:
+          component: che-llweb-injector
+      - id: init-che-llweb-command
+        exec:
+          component: che-llweb-runtime-description
+          commandLine: nohup /chellweb/entrypoint-volume.sh > /chellweb/entrypoint-logs.txt
+            2>&1 &
+    events:
+      preStart:
+        - init-container-command
+      postStart:
+        - init-che-llweb-command
+    components:
+      - name: che-llweb-injector
+        container:
+          image: 'che-llweb:latest'
+          command:
+            - /entrypoint-init-container.sh
+          volumeMounts:
+            - name: chellweb
+              path: /chellweb
+          memoryLimit: 256Mi
+          memoryRequest: 32Mi
+          cpuLimit: 500m
+          cpuRequest: 30m
+      - name: che-llweb-runtime-description
+        container:
+          image: 'llweb:latest'
+          memoryLimit: 1024Mi
+          memoryRequest: 256Mi
+          cpuLimit: 500m
+          cpuRequest: 30m
+          volumeMounts:
+            - name: llweb
+              path: /llweb
+          endpoints:
+            - name: che-llweb
+              attributes:
+                type: main
+                cookiesAuthEnabled: true
+                discoverable: false
+                urlRewriteSupported: true
+              targetPort: 3100
+              exposure: public
+              secure: true
+              protocol: https
+        attributes:
+          app.kubernetes.io/component: che-llweb-runtime
+          # app.kubernetes.io/part-of: che-code.eclipse.org
+          controller.devfile.io/container-contribution: true
+      - name: llweb
+        volume: {}
