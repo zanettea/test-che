@@ -4,7 +4,7 @@ metadata:
 components:
   - name: xplc
     container:
-      image: 'llweb:latest'
+      image: 'che-llweb:latest'
       volumeMounts:
         - name: projector-user
           path: /home/axel/projects
