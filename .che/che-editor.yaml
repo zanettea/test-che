@@ -37,30 +37,30 @@
       #     memoryRequest: 32Mi
       #     cpuLimit: 500m
       #     cpuRequest: 30m
-      # - name: che-llweb-runtime-description
-      #   container:
-      #     image: 'llweb:latest'
-      #     memoryLimit: 1024Mi
-      #     memoryRequest: 256Mi
-      #     cpuLimit: 500m
-      #     cpuRequest: 30m
-      #     volumeMounts:
-      #       - name: llweb
-      #         path: /LLWeb
-      #     endpoints:
-      #       - name: che-llweb
-      #         attributes:
-      #           type: main
-      #           cookiesAuthEnabled: true
-      #           discoverable: false
-      #           urlRewriteSupported: true
-      #         targetPort: 3101
-      #         exposure: public
-      #         secure: true
-      #         protocol: https
-      #   attributes:
-      #     app.kubernetes.io/component: che-llweb-runtime
-      #     # app.kubernetes.io/part-of: che-code.eclipse.org
-      #     controller.devfile.io/container-contribution: true
-      # - name: llweb
-      #   volume: {}
+      - name: che-llweb-runtime-description
+        container:
+          image: 'llweb:latest'
+          memoryLimit: 1024Mi
+          memoryRequest: 256Mi
+          cpuLimit: 500m
+          cpuRequest: 30m
+          volumeMounts:
+            - name: llweb
+              path: /LLWeb
+          endpoints:
+            - name: che-llweb
+              attributes:
+                type: main
+                cookiesAuthEnabled: true
+                discoverable: false
+                urlRewriteSupported: true
+              targetPort: 3101
+              exposure: public
+              secure: true
+              protocol: https
+        attributes:
+          app.kubernetes.io/component: che-llweb-runtime
+          # app.kubernetes.io/part-of: che-code.eclipse.org
+          controller.devfile.io/container-contribution: true
+      - name: llweb
+        volume: {}
