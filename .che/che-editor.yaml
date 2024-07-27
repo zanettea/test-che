@@ -24,7 +24,7 @@ metadata:
 #     - init-container-command
 #   postStart:
 #     - init-che-llweb-command
-components:
+components: []
   # - name: che-llweb-injector
   #   container:
   #     image: 'che-llweb:latest'
