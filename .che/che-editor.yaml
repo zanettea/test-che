@@ -44,9 +44,9 @@ components:
       memoryRequest: 256Mi
       cpuLimit: 500m
       cpuRequest: 30m
-      # volumeMounts:
-      #   - name: llweb
-      #     path: /LLWeb
+      volumeMounts:
+        - name: llweb
+          path: /home/axel/projects
       endpoints:
         - name: che-llweb
           attributes:
@@ -62,5 +62,5 @@ components:
       # app.kubernetes.io/component: che-llweb-runtime
       # app.kubernetes.io/part-of: che-code.eclipse.org
       # controller.devfile.io/container-contribution: true
-  # - name: llweb
-  #   volume: {}
+  - name: llweb
+    volume: {}
