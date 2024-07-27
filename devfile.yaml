@@ -1,0 +1,9 @@
+schemaVersion: 2.0.0
+metadata:
+  name: LLWeb
+components:
+  - name: runtime
+    container:
+      image: che-llweb:latest
+      mountSources: true
+      sourceMapping: /home/axel/projects
