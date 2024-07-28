@@ -21,7 +21,7 @@ components:
           attributes:
             type: main
             cookiesAuthEnabled: true
-            urlRewriteSupported: true
+            urlRewriteSupported: false
             discoverable: false
             path: /
           targetPort: 3101
