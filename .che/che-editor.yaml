@@ -9,7 +9,7 @@ components:
       #   - name: projector-user
       #     path: /home/axel/projects
       mountSources: true
-      sourceMapping: /home/axel/projects
+      sourceMapping: /LLWeb/LLWebServer/Projects 
       command:
         - /entrypoint.sh
       memoryLimit: 2048M
