@@ -26,7 +26,7 @@ components:
             path: /
           targetPort: 3101
           exposure: public
-          secure: false
+          secure: true
           protocol: http
     attributes: {}
   # - name: projector-user
